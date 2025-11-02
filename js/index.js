@@ -731,7 +731,7 @@ const state = {
     function updateMediaMetadata() {
         // 依赖现有全局 state.currentSong；已在项目中使用 localStorage 保存/恢复。:contentReference[oaicite:7]{index=7}
         const song = state.currentSong || {};
-        const title = song.name || dom.currentSongTitle?.textContent || 'Solara';
+        const title = song.name || dom.currentSongTitle?.textContent || 'CK_Music';
         const artist = song.artist || dom.currentSongArtist?.textContent || '';
         const artworkUrl = state.currentArtworkUrl || '';
 
@@ -3317,7 +3317,7 @@ function exportPlaylist() {
     try {
         const payload = {
             meta: {
-                app: "Solara",
+                app: "CK_Music",
                 version: PLAYLIST_EXPORT_VERSION,
                 exportedAt: new Date().toISOString(),
                 itemCount: state.playlistSongs.length
@@ -3331,7 +3331,7 @@ function exportPlaylist() {
         const formattedTimestamp = `${now.getFullYear()}${String(now.getMonth() + 1).padStart(2, "0")}${String(now.getDate()).padStart(2, "0")}-${String(now.getHours()).padStart(2, "0")}${String(now.getMinutes()).padStart(2, "0")}${String(now.getSeconds()).padStart(2, "0")}`;
         const anchor = document.createElement("a");
         anchor.href = url;
-        anchor.download = `solara-playlist-${formattedTimestamp}.json`;
+        anchor.download = `ck_music-playlist-${formattedTimestamp}.json`;
         document.body.appendChild(anchor);
         anchor.click();
         document.body.removeChild(anchor);
